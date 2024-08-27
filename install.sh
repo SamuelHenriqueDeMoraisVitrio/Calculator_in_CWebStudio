@@ -30,6 +30,6 @@ mkdir -p /alpine/root
 chroot ./alpine apk add gcc
 chroot ./alpine apk add musl-dev
 umount ./alpine/dev
-rm -f /etc/resolve.conf
+
 rm alpine.tar.gz
 echo "alpine installed with gcc"
