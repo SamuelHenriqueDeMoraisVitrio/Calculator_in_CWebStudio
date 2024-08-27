@@ -1,11 +1,18 @@
 
+CWEBSTUDIO_VERSION ="2.000"
+
 if [[ $EUID -ne 0 ]]; then
    echo "these script must be executed as root"
    exit 1
 fi
 
-
+# in case of re-run these script
 rm -rf alpine
+rm -rf src/dependencies
+mkdir src/dependencies
+
+
+
 
 wget http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-minirootfs-3.12.0-x86_64.tar.gz
 mkdir alpine
