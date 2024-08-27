@@ -1,5 +1,5 @@
 
-CWEBSTUDIO_VERSION ="2.000"
+CWEBSTUDIO_VERSION ="v2.000"
 
 if [[ $EUID -ne 0 ]]; then
    echo "these script must be executed as root"
@@ -12,7 +12,7 @@ rm -rf src/dependencies
 mkdir src/dependencies
 
 
-
+wget https://github.com/OUIsolutions/CWebStudio/releases/download/$CWEBSTUDIO_VERSION/CWebStudio.h  src/dependencies/CWebStudio.h
 
 wget http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-minirootfs-3.12.0-x86_64.tar.gz
 mkdir alpine
