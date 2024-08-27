@@ -17,9 +17,7 @@ rm -rf alpine
 
 
 wget https://github.com/OUIsolutions/CWebStudio/releases/download/$CWEBSTUDIO_VERSION/CWebStudio.h -O src/dependencies/CWebStudio.h
-
-
-wget http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-minirootfs-3.12.0-x86_64.tar.gz -O alpine.tar.gz
+wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz -O alpine.tar.gz
 mkdir alpine
 tar zxf alpine.tar.gz -C ./alpine
 
