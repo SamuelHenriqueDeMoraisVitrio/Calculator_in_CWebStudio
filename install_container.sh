@@ -14,7 +14,7 @@ echo "delet dependencies"
 rm -rf src/dependencies
 mkdir src/dependencies
 echo ""
-sh install_local.sh
+ sh install_dependencies.sh
 
 echo ""
 echo ""

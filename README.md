@@ -8,3 +8,9 @@ to run via container just run
 sudo sh install_container.sh
 sudo sh run_container.sh
 ```
+
+to run locally
+```shel
+ sh install_dependencies.sh
+ sh run_local.sh
+```
