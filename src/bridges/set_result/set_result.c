@@ -27,7 +27,7 @@ void set_result_bridge_handler(CWebHyDrationBridge *set_num_bridge){
         result  = visor_number / first_num;
     }
     CTextStack *result_number = bridge.create_empty_stack(set_num_bridge);
-    stack.format(result_number,"%lf",result_number);
+    stack.format(result_number,"%lf",result);
 
     CTextStack *visor_html = bridge.create_empty_stack(set_num_bridge);
     create_visor(visor_html, result_number->rendered_text);
@@ -57,6 +57,6 @@ void create_set_result_bridge(CWebHyDration *hydration){
         set_result_bridge,
         OPERATOR
     );
-    requirements.add_session_storage_item(first_number,OPERATOR);
+    requirements.add_session_storage_item(operator,OPERATOR);
 
 }

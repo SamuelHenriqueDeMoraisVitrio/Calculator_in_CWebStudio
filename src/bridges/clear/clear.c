@@ -1,4 +1,5 @@
 #include "../unique.definition_requirements.h"
+#include <time.h>
 
 void clear_bridge_handler(CWebHyDrationBridge *set_operator_handler){
 
@@ -13,7 +14,7 @@ void clear_bridge_handler(CWebHyDrationBridge *set_operator_handler){
     );
 
     CTextStack *visor_html = bridge.create_empty_stack(set_operator_handler);
-    create_visor(visor_html, "");
+    create_visor(visor_html, NULL);
     actions.replace_element_by_id(set_operator_handler,VISOR_ID,visor_html->rendered_text);
 
 }
@@ -21,7 +22,7 @@ void clear_bridge_handler(CWebHyDrationBridge *set_operator_handler){
 void create_clear_bridge(CWebHyDration *hydration){
     CWebHyDrationBridge *set_operator_bridge = bridge.create_bridge(
         hydration,
-        SET_OPERATOR_BRIDGE,
+        CLEAR_BRIDGE,
         clear_bridge_handler
     );
 }

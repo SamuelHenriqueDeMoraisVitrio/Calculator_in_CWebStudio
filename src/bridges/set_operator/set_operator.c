@@ -1,22 +1,29 @@
 #include "../unique.definition_requirements.h"
+#include <time.h>
 
-void set_operator_handler(CWebHyDrationBridge *set_operator_handler){
+void set_operator_handler(CWebHyDrationBridge *set_operator_bridge){
 
-    char *visor_text  =result.get_string_from_first_element_of_search(set_operator_handler,VISOR_ID);
-    char *operator = args.get_str_arg(set_operator_handler,0);
+    char *visor_text  =result.get_string_from_first_element_of_search(set_operator_bridge,VISOR_ID);
+    char *operator = args.get_str_arg(set_operator_bridge,0);
 
-    if(bridge.has_errors(set_operator_handler)){
+    if(bridge.has_errors(set_operator_bridge)){
         return;
     }
 
+    CTextStack *formated_visor = bridge.create_empty_stack(set_operator_bridge);
+    stack.text(formated_visor,visor_text);
+    stack.self_replace(formated_visor,"\n","");
+    stack.self_replace(formated_visor," ","");
 
-    actions.set_session_storage_data(set_operator_handler,FIRST_NUMBER,visor_text);
-    actions.set_session_storage_data(set_operator_handler,OPERATOR,operator);
+
+    actions.set_session_storage_data(set_operator_bridge,FIRST_NUMBER,formated_visor->rendered_text);
+
+    actions.set_session_storage_data(set_operator_bridge,OPERATOR,operator);
 
 
-    CTextStack *visor_html = bridge.create_empty_stack(set_operator_handler);
-    create_visor(visor_html, "");
-    actions.replace_element_by_id(set_operator_handler,VISOR_ID,visor_html->rendered_text);
+    CTextStack *visor_html = bridge.create_empty_stack(set_operator_bridge);
+    create_visor(visor_html, NULL);
+    actions.replace_element_by_id(set_operator_bridge,VISOR_ID,visor_html->rendered_text);
 
 
 }

@@ -8,8 +8,11 @@ void break_line(CTextStack *s){
 
 void create_visor(CTextStack *s,const char *content){
     CTextScope_format(s, CTEXT_DIV,"id='%s'",VISOR_ID){
-        CTextScope(s,CTEXT_H5){
-            stack.text(s,content);
+        if(content){
+            CTextScope(s,CTEXT_H5){
+                stack.text(s,content);
+            }
+            break_line(s);
         }
     }
 }
