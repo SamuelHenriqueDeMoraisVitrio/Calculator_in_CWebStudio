@@ -1,4 +1,3 @@
-#define DEBUG
 #include "definition.c"
 
 
@@ -33,15 +32,13 @@ int main(int argc, char *argv[]){
     result = cweb.hydration.search_result;
     args = cweb.hydration.args;
     actions = cweb.hydration.actions;
-    #ifdef DEBUG
-        for(int i =3000;i < 4000;i++){
-            struct CwebServer server = newCwebSever(i, main_sever);
-            server.single_process  = true;
-            bool error = cweb.server.start(&server);
-            if(!error){
-                break;
-            }
+    for(int i =3000;i < 4000;i++){
+        struct CwebServer server = newCwebSever(i, main_sever);
+        server.single_process  = true;
+        bool error = cweb.server.start(&server);
+        if(!error){
+            break;
         }
-    #endif
+    }
     return 0;
 }
