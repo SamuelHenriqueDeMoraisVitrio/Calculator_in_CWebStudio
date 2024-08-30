@@ -1,7 +1,5 @@
 #define DEBUG
 #include "definition.c"
-#include "dependencies/CWebStudio.h"
-#include <string.h>
 
 
 CwebHttpResponse *main_sever(CwebHttpRequest *request ){
@@ -21,7 +19,7 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request ){
     }
 
     CTextStack *s = cweb.request.create_stack(request);
-    create_main_calculator(s);
+    create_main_calculator(s,hydration);
     return cweb.response.send_rendered_CTextStack(s,200);
 
 }

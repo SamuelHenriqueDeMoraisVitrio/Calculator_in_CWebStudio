@@ -11,7 +11,7 @@ void set_operator_handler(CWebHyDrationBridge *set_operator_handler){
 
 
     actions.set_session_storage_data(set_operator_handler,FIRST_NUMBER,visor_text);
-    actions.set_session_storage_data(set_operator_handler,OPERATOR_NUMBER,operator);
+    actions.set_session_storage_data(set_operator_handler,OPERATOR,operator);
 
 
     CTextStack *visor_html = bridge.create_empty_stack(set_operator_handler);

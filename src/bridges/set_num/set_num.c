@@ -5,16 +5,20 @@ void set_num_bridge_handler(CWebHyDrationBridge *set_num_bridge){
     char *visor_text  =result.get_string_from_first_element_of_search(set_num_bridge,VISOR_ID);
     char *num_to_concat = args.get_str_arg(set_num_bridge,0);
 
+
     if(bridge.has_errors(set_num_bridge)){
         return;
     }
+    CTextStack *new_number = bridge.create_empty_stack(set_num_bridge);
+    stack.format(new_number,"%s%s",visor_text,num_to_concat);
+    stack.self_replace(new_number,"\n","");
+    stack.self_replace(new_number," ","");
 
-    if(strlen(visor_text) > 10){
+    if(strlen(new_number->rendered_text) > 10){
         return;
     }
 
-    CTextStack *new_number = bridge.create_empty_stack(set_num_bridge);
-    stack.format(new_number,"%s%s",visor_text,num_to_concat);
+
 
     CTextStack *visor_html = bridge.create_empty_stack(set_num_bridge);
     create_visor(visor_html, new_number->rendered_text);

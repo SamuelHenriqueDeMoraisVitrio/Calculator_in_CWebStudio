@@ -16,7 +16,7 @@ void create_visor(CTextStack *s,const char *content){
 
 
 void create_numerical_button(CTextStack *s,int num,CWebHyDrationBridge *set_num){
-    CTextScope_format(s,CTEXT_BUTTON,"%s",bridge.onclick(set_num,"%d",num)){
+    CTextScope_format(s,CTEXT_BUTTON,"%s",bridge.onclick(set_num,"'%d'",num)){
         stack.format(s,"%d",num);
     }
 }
