@@ -6,7 +6,7 @@ URL="http://cdimage.ubuntu.com/ubuntu-base/releases/20.04/release/ubuntu-base-20
 DIRETORIO="container"
 PROJECTS="projects"
 TAR_FILE="ubuntu-base.tar.gz"
-COMANDO="cd $PROJECTS && gcc src/main.c && ./a.out"
+COMANDO="cd $PROJECTS && gcc src/main.c  && ./a.out"
 
 #resouvendo problemas de montagem anterior
 umount "$DIRETORIO/proc"

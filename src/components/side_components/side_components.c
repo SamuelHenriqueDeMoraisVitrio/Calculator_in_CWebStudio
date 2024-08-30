@@ -7,19 +7,23 @@ void break_line(CTextStack *s){
 }
 
 void create_visor(CTextStack *s,const char *content){
-    CTextScope_format(s,CTEXT_H5,"id='%s'",VISOR_ID){
-        stack.text(s,content);
+    CTextScope_format(s, CTEXT_DIV,"id='%s'",VISOR_ID){
+        CTextScope(s,CTEXT_H5){
+            stack.text(s,content);
+        }
     }
 }
 
-void create_numerical_button(CTextStack *s,int num){
-    CTextScope(s,CTEXT_BUTTON){
-        stack.format(s,"%d", num);
+
+void create_numerical_button(CTextStack *s,int num,CWebHyDrationBridge *set_num){
+    CTextScope_format(s,CTEXT_BUTTON,"%s",bridge.onclick(set_num,"%d",num)){
+        stack.format(s,"%d",num);
     }
 }
 
-void create_operator_button(CTextStack *s,const char *operator){
-    CTextScope(s,CTEXT_BUTTON){
-        stack.text(s,operator);
+void create_operator_button(CTextStack *s,const char *operator_text,CWebHyDrationBridge *set_operator){
+    CTextScope_format(s,CTEXT_BUTTON,"%s",
+        bridge.onclick(set_operator,"'%s'",operator_text)){
+        stack.text(s,operator_text);
     }
 }
