@@ -9,8 +9,24 @@ sudo sh install_container.sh
 sudo sh run_container.sh
 ```
 
-to run locally
+### Running locally:
+(note that you must have gcc installed for run locally)
 ```shel
  sh install_dependencies.sh
  sh run_local.sh
 ```
+#### Dependencies
+
+CWebStudio
+Used as a web framework
+https://github.com/OUIsolutions/CWebStudio
+
+cJSON
+Used internally by CWebStudio
+
+https://github.com/DaveGamble/cJSON
+
+CTextEngine
+Used for rendering the html
+
+https://github.com/OUIsolutions/CTextEngine
