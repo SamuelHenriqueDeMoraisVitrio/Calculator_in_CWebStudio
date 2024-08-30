@@ -1,0 +1,6 @@
+#define HYDRATION_SCRIPT_ROUTE "/hydration_script"
+#define VISOR_ID "visor"
+#define SET_NUM_BRIDGE "set_num_bridge"
+#define CLEAR_BRIDGE "clear"
+#define SET_OPERATOR_BRIDGE "set_operator"
+#define SET_RESULT_BRIDGE "set_result"
