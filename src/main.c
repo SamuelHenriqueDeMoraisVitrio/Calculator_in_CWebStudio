@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
     actions = cweb.hydration.actions;
     for(int i =3000;i < 4000;i++){
         struct CwebServer server = newCwebSever(i, main_sever);
-        server.single_process  = true;
+       /// server.single_process  = true;
         bool error = cweb.server.start(&server);
         if(!error){
             break;

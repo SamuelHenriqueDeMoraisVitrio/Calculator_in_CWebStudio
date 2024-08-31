@@ -10,18 +10,25 @@ void create_main_calculator(CTextStack *s,CWebHyDration *hydration){
     stack.text(s,"<DOCTYPE html>");
     CTextScope_format(s,CTEXT_HTML, "lang='pt-BR'"){
         CTextScope(s, CTEXT_HEAD){
-            stack.text(s, "<meta charset='UTF-8'>\n\
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n\
-            <title>Calculadora</title>\n\
-            <link rel='stylesheet' href='/static/teste.css'>\
-            ");
+            stack.only_open_format(s,CTEXT_META,"charset='UTF-8'");
+            stack.only_open_format(s,CTEXT_META," name='viewport' content='width=device-width, initial-scale=1.0'");
+            CTextScope(s, CTEXT_TITLE){
+                stack.text(s,"Hello Kitty Calculator");
+            }
+            stack.only_open_format(s,CTEXT_LINK,"rel='stylesheet' href='%sc'",
+                cweb_smart_static_ref("static/teste.css"));
             CTextScope_format(s, CTEXT_SCRIPT,"src='%s'",HYDRATION_SCRIPT_ROUTE){}
 
         }
         CTextScope(s,CTEXT_BODY){
             CTextScope_format(s, CTEXT_DIV, "class='logo_c'"){
-                stack.text(s, "<img src='/static/imgs/C.png' alt=\"Language 'C'\" class='logo'>");
+                CTextScope_format(s,
+                    CTEXT_IMG,
+                    "src='%sc' alt=\"Language 'C'\" class='logo'",
+                    cweb_smart_static_ref("static/imgs/C.png")
+                    ){}
             }
+
             CTextScope_format(s, CTEXT_DIV, "class='calculator'"){
 
                 create_visor(s,"");
@@ -54,12 +61,15 @@ void create_main_calculator(CTextStack *s,CWebHyDration *hydration){
             }
             CTextScope_format(s, CTEXT_DIV, "class='copryth'"){
                 CTextScope_format(s, CTEXT_A, "href='https://pt.wikipedia.org/wiki/Ken_Thompson' target='_blank' rel='noopener noreferrer'"){
-                    stack.text(s, "<img src='/static/imgs/KenThompson.png' alt='Ken Thompson' class='copyright'>");
+                    CTextScope_format(
+                        s, CTEXT_IMG, "src='%s' alt='Ken Thompson' class='copyright'",
+                        cweb_smart_static_ref("static/imgs/KenThompson.png")
+                        ){
+
+                    }
+                    stack.text(s, "<img >");
                 }
             }
         }
     }
 }
-
-
-
