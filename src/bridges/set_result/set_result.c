@@ -17,14 +17,14 @@ void set_result_bridge_handler(CWebHyDrationBridge *set_num_bridge){
         result  = visor_number + first_num;
     }
     if(strcmp(operator,"-") == 0){
-        result  = visor_number - first_num;
+        result  = first_num - visor_number;
     }
 
-    if(strcmp(operator,"x") == 0){
+    if(strcmp(operator,"*") == 0){
         result  = visor_number * first_num;
     }
     if(strcmp(operator,"/") == 0){
-        result  = visor_number / first_num;
+        result  = first_num / visor_number;
     }
     CTextStack *result_number = bridge.create_empty_stack(set_num_bridge);
     stack.format(result_number,"%lf",result);

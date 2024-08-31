@@ -2,7 +2,7 @@
 URL="http://cdimage.ubuntu.com/ubuntu-base/releases/20.04/release/ubuntu-base-20.04.3-base-amd64.tar.gz"
 DIRETORIO="container"
 TAR_FILE="ubuntu-base.tar.gz"
-CWEBSTUDIO_VERSION="v2.000"
+CWEBSTUDIO_VERSION="v2.001"
 
 # Verificar se o script está sendo executado como root
 if [[ $EUID -ne 0 ]]; then
